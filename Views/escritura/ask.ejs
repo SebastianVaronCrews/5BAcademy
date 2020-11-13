@@ -1,0 +1,28 @@
+ <%- include("../partials/header") %>
+
+
+<div class="ui main text container segment">
+    <div class="ui huge header"> Question goes here:</div> 
+    <form class= "ui form" action= "/escrituraClassroom" method= "POST">
+        <div class="field">
+        <label> Que quieres saber?</label>
+            <input type= "text" name="QuestionX[question]" placeholder="(version corta)">
+        </div>
+
+        <div class="field">
+        <label> Photo del proceso en lapiz (opcional)</label>
+                <input type= "text" name="QuestionX[image]" placeholder="(Legible por favor!)">
+        </div>
+
+        <div class= "field">
+        <label>Detalles: Sea <strong>especifico/especifica</strong></label>
+        <textarea name= "QuestionX[body]">(version larga)</textarea>
+ 
+        </div>
+        
+        <input class="ui violet big basic button" type= "submit"> 
+    </form>
+</div>
+
+  <%- include("../partials/footer") %>
+
