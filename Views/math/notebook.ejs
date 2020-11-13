@@ -1,0 +1,28 @@
+  
+    <%- include("../partials/header") %>
+
+    <div class="notebook">
+    Math Notebook  <i class="fas fa-book-open"></i>
+    </div>
+ 
+  <% questionsM.forEach(function(q){%>
+   
+  
+
+  <% if(currentUser && (q.author.username == currentUser.username)){ %>
+    <h2><strong> <%= q.author.username %></strong>- <%=q.question%></h2>
+    <h3><%=q.body%></h3>
+    <span class="badge label-primary"><i class="fas fa-thumbs-up"></i> <%= q.likes.length %></span> <em><%= moment(q.createdAt).fromNow() %></em>
+
+
+ 
+
+    <div>
+        
+    <a href="/mathClassroom/<%= q._id%>"> Ver respuestas</a>
+  </div>
+ <% } %>
+<% }) %>
+
+
+    <%- include("../partials/footer") %>
