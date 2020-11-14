@@ -1,4 +1,6 @@
-# 5BAcademy
-online tutoring for highschool
+# 5BAcademy 
 
-Provervs 23:23 
+"Buy the truth, and sell it not; also wisdom, and instruction, and understanding."
+-Proverbs 23:23
+
+Start your online learning platform with 5BAcademy. 
