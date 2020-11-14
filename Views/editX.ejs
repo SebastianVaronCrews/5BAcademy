@@ -1,0 +1,28 @@
+ <%- include("partials/header") %>
+
+
+<div class="ui main text container segment">
+    <div class="ui huge header"> Question goes here:</div> 
+    <form class= "ui form" action= "/escrituraClassroom/<%= questionX._id%>?_method=PUT" method= "POST">
+        <div class="field">
+        <label> Que quieres saber?</label>
+            <input type= "text" name="QuestionX[question]" value="<%=questionX.question%>">
+        </div>
+
+        <div class="field">
+        <label> Photo del proceso en lapiz (opcional)</label>
+                <input type= "text" name="QuestionX[image]" value="<%=questionX.image%>">
+        </div>
+
+        <div class= "field">
+        <label>Detalles:</label>
+        <textarea name= "QuestionX[body]"> <%=questionX.body%></textarea>
+ 
+        </div>
+        
+        <input class="ui violet big basic button" type= "submit"> 
+    </form>
+</div>
+
+  <%- include("partials/footer") %>
+
