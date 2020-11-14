@@ -1,0 +1,24 @@
+<%- include("partials/header") %>
+<form action="/classroom" method="POST">
+	<input type="text" name="pregunta" placeholder= "pregunta">
+	<input type="text" name="detalles" placeholder= "detalles">
+	<input type="submit">
+</form>
+
+<% questions%>
+
+<a href="#" id="popover">the popover link</a>
+<div id="popover-head" class="hide">
+  some title
+</div>
+<div id="popover-content" class="hide">
+  <form action="/classroom" method="POST">
+	<input type="text" name="pregunta" placeholder= "pregunta">
+	<input type="text" name="detalles" placeholder= "detalles">
+	<input type="submit">
+</form>
+</div>
+
+
+<% questions%>
+
