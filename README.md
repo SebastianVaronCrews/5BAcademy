@@ -5,7 +5,7 @@
 
 Start your online learning platform with 5BAcademy. 
 
-FEATURES:
+*FEATURES*:
 
   -Admins sign up with code: adminPackage5Bdemo 
   
