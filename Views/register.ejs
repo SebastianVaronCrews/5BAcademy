@@ -1,0 +1,16 @@
+<%- include("partials/header") %>
+
+<h1>Sign Up!</hi>
+
+<div class="ui inverted segment">
+<form action="/register" method="post">
+	<input type="text" name="username" placeholder="username">
+	<input type="email" name="email" placeholder="email" id="email">
+	<input type="password" name="password" placeholder="password">
+	<input type="text" name="adminCode" placeholder="Admin code (for instructor sign-up)">
+	<button id="register">Sign Up</button>
+</form>
+</div>
+
+
+<%- include("partials/footer") %>
