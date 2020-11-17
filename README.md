@@ -13,4 +13,4 @@ Start your online learning platform with 5BAcademy.
   
   -Students have their own notebooks for each classroom!
   
- For a sample webpage visit 5BAcademy.com
+ For a sample webpage visit 5BAcademy.com (Under construction!)
