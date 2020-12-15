@@ -3,7 +3,7 @@
 "Buy the truth, and sell it not; also wisdom, and instruction, and understanding." 
 -Proverbs 23:23 (KJB)
 
-Start your online learning platform (or fit the project to your needs I guess). 
+Start your online learning platform (or fit the project to your needs). 
 
 *FEATURES*:
 
