@@ -1,0 +1,94 @@
+require('dotenv').config({ path: './.env' });
+
+var express = require("express");
+var app = express();
+var methodOverride = require("method-override");
+var expressSanitizer = require("express-sanitizer");
+var bodyParser = require("body-parser");
+var mongoose = require("mongoose");
+var passport = require("passport");
+const mongoSanitize = require('express-mongo-sanitize');
+var flash = require("connect-flash");
+var LocalStrategy = require("passport-local");
+var Question = require("./models/question");
+var Comment = require("./models/comment");
+var User = require("./models/user");
+var seedDB = require("./seeds");
+var cloudinary = require('cloudinary').v2;
+const { resolve } = require("path");
+
+var commentRoutes = require("./routes/comments");
+var spanishClassroomRoutes = require("./routes/spanishClassroom");
+var commentXRoutes = require("./routes/commentsX");
+var escrituraClassroomRoutes = require("./routes/escrituraClassroom");
+var commentMRoutes = require("./routes/commentsM");
+var mathClassroomRoutes = require("./routes/mathClassroom");
+var commentERoutes = require("./routes/commentsE");
+var englishClassroomRoutes = require("./routes/englishClassroom");
+var indexRoutes = require("./routes/index");
+//add other classrooms
+
+
+
+mongoose.connect("mongodb://localhost/5BAcademy", { useNewUrlParser: true, useUnifiedTopology: true });
+app.use(
+    express.json({
+        // We need the raw body to verify webhook signatures.
+        // Let's compute it only when hitting the Stripe webhook endpoint.
+        verify: function (req, res, buf) {
+            if (req.originalUrl.startsWith("/webhook")) {
+                req.rawBody = buf.toString();
+            }
+        },
+    })
+);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(expressSanitizer());
+app.set("view engine", "ejs");
+app.use(express.static(process.env.STATIC_DIR));
+app.use(methodOverride("_method"));
+app.use(mongoSanitize());
+app.use(flash());
+
+
+//seed the database
+/*seedDB()*/
+
+app.use(require("express-session")({
+    secret: "rusty is cute",
+    resave: false,
+    saveUninitialized: false
+}));
+app.locals.moment = require('moment');
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use(async function (req, res, next) {
+    res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    next();
+})
+
+app.use(indexRoutes);
+app.use("/spanishClassroom", spanishClassroomRoutes);
+app.use("/spanishClassroom/:id/comments", commentRoutes);
+app.use("/escrituraClassroom", escrituraClassroomRoutes);
+app.use("/escrituraClassroom/:id/commentsX", commentXRoutes);
+app.use("/englishClassroom", englishClassroomRoutes);
+app.use("/englishClassroom/:id/commentsE", commentERoutes);
+app.use("/mathClassroom", mathClassroomRoutes);
+app.use("/mathClassroom/:id/commentsM", commentMRoutes);
+//add other classrooms
+
+
+
+
+
+
+app.listen(process.env.PORT || 3000, process.env.IP, () => {
+    console.log("5B server is live");
+});
