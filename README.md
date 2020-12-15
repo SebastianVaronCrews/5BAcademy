@@ -3,7 +3,7 @@
 "Buy the truth, and sell it not; also wisdom, and instruction, and understanding." 
 -Proverbs 23:23 (KJB)
 
-Start your online learning platform with 5BAcademy. 
+Start your online learning platform (or fit the project to your needs I guess). 
 
 *FEATURES*:
 
@@ -11,6 +11,8 @@ Start your online learning platform with 5BAcademy.
   
   -Students can ask questions! Admins will answer...
   
+  -Likes and comments on questions allows for discussion.
+  
   -Students have their own notebooks for each classroom!
   
- For a sample webpage visit 5BAcademy.com (Under construction!)
+ Note: 5BAcademy.com is a real website you can visit, but the team is working on the content.  
